@@ -29,11 +29,14 @@ app.get("/repeat/:word/:num", function(req, res){
     const word = req.params['word'];
     const num = Number(req.params['num']);
 
-/* loop the word - now it prints only one time
- */for(let ii = 0; ii <= num; ii++){
-    res.send(word);
-}
-
+    //create an empty string -> concatenate
+    displayWord = "";
+    //it in the loop -> send it
+    for(let ii = 0; ii < num; ii++){
+        displayWord = displayWord + " " + word;
+        // console.log(displayWord);
+    }
+    res.send(displayWord);
 })
 
 //listener
