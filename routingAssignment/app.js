@@ -31,15 +31,28 @@ app.get("/repeat/:word/:num", function(req, res){
 
     //create an empty string -> concatenate
     displayWord = "";
-    //it in the loop -> send it
+/*     it in the loop -> send it
+    res.send gives only one response
+    use the giant string  */
     for(let ii = 0; ii < num; ii++){
         displayWord = displayWord + " " + word;
         // console.log(displayWord);
-    }
+    } 
     res.send(displayWord);
 })
+
+//if a user visits another route
+app.get('*', function(req, res){
+    res.send('Sorry, page not found ... What are you doing with your life?');
+})
+
 
 //listener
 app.listen(port, () => {
     console.log(`app listening at http://localhost:${port}`);
 })
+
+// //listener for cloud9 or GoormIDE
+// app.listen(process.env.PORT, process.env.IP, function(){
+//     console.log("Now serving you app!");
+// })
