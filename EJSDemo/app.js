@@ -20,9 +20,17 @@ app.get("/faithassembly/:ministry", function(req, res){
     const ministries = {
         "thevoice":"thevoice.ejs"
     }
-    res.render(ministries[ministry]);
+    const consumer = "Yared";
+    res.render(ministries[ministry], {user: consumer});
 })
-
+app.get("/posts", function(req, res){
+    const posts = [
+        {title: "The Voice Conference", author:"Faith Assembly"},
+        {title: "Vision Conference", author:"Bridges"},
+        {title: "Winter Conference", author:"Other"}
+    ];
+    res.render("posts.ejs", {posts: posts})
+})
 
 
 app.listen(port, () => {
