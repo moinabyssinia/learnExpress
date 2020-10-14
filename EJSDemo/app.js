@@ -32,6 +32,11 @@ app.get("/posts", function(req, res){
     res.render("posts.ejs", {posts: posts})
 })
 
+//get input from the user
+app.get('/life-academy', function(req, res){
+    let age; 
+    res.render("ageGroup.ejs", {ageValue:age});
+})
 
 app.listen(port, () => {
     console.log("server is listening!")
