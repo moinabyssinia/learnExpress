@@ -3,6 +3,9 @@ const express = require('express');
 const app = express();
 port = 3000;
 
+//tell express to serve from this folder
+app.use(express.static("public"));
+
 //routes
 app.get("/", function(req, res){
     //create a seprate file first
